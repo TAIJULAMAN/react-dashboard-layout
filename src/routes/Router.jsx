@@ -3,106 +3,90 @@ import DashboardLayout from "../layout/dashboardLayout/DashboardLayout";
 import Dashboard from "../components/Dashboard/Dashboard";
 import UserManagement from "../page/UserManagement/UserManagement";
 import CreatorManagement from "../page/CreatorManagement/CreatorManagement";
-
 import Subscription from "../page/Subscription/Subscription";
-
 import Profile from "../page/Settings/Profile";
 import TermsCondition from "../page/Settings/TermsCondition";
 import FAQ from "../page/Settings/FAQ";
 import PrivacyPolicy from "../page/Settings/PrivacyPolicy";
 import Categories from "../page/CategoriesManagement/Categories";
 import Subcategory from "../page/CategoriesManagement/Subcategory";
-
-import ForgetPass from "../Auth/ForgetPass";
 import Verify from "../Auth/Verify";
 import ResetPass from "../Auth/ResetPass";
 import Notification from "../page/Notification/Notification";
 import About from "../page/Settings/About";
 import Login from "../Auth/Login";
-
+import ForgetPassword from "../Auth/ForgetPass";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-     
-        <DashboardLayout></DashboardLayout>
-      
-    ),
+    element: <DashboardLayout />,
     children: [
       {
         path: "/",
-        element: <Dashboard></Dashboard>,
+        element: <Dashboard />,
       },
       {
         path: "/dashboard/UserManagement",
-        element: <UserManagement></UserManagement>,
+        element: <UserManagement />,
       },
       {
         path: "/dashboard/CreatorManagement",
-        element: <CreatorManagement></CreatorManagement>,
+        element: <CreatorManagement />,
       },
       {
         path: "/dashboard/CategoriesManagement/Categories",
-        element: <Categories></Categories>,
-      },
-      {
-        path: "/dashboard/CategoriesManagement/Categories",
-        element: <Categories></Categories>,
+        element: <Categories />,
       },
       {
         path: "/dashboard/CategoriesManagement/Subcategory",
-        element: <Subcategory></Subcategory>,
+        element: <Subcategory />,
       },
       {
         path: "/dashboard/Subscription",
-        element: <Subscription></Subscription>,
+        element: <Subscription />,
       },
       {
         path: "/dashboard/Settings/profile",
-        element: <Profile></Profile>,
-      },
-      {
-        path: "/dashboard/Settings/profile",
-        element: <Profile></Profile>,
+        element: <Profile />,
       },
       {
         path: "/dashboard/Settings/notification",
-        element: <Notification></Notification>,
+        element: <Notification />,
       },
       {
         path: "/dashboard/Settings/Terms&Condition",
-        element: <TermsCondition></TermsCondition>,
+        element: <TermsCondition />,
       },
       {
         path: "/dashboard/Settings/FAQ",
-        element: <FAQ></FAQ>,
+        element: <FAQ />,
       },
       {
         path: "/dashboard/Settings/aboutUs",
-        element: <About></About>,
+        element: <About />,
       },
       {
         path: "/dashboard/Settings/PrivacyPolicy",
-        element: <PrivacyPolicy></PrivacyPolicy>,
+        element: <PrivacyPolicy />,
       },
     ],
   },
-
+  // Auth routes
   {
     path: "/login",
-    element: <Login></Login>,
+    element: <Login />,
   },
   {
-    path: "/forgetpassword",
-    element: <ForgetPass></ForgetPass>,
+    path: "/forget-password",
+    element: <ForgetPassword />,
   },
   {
     path: "/verify",
-    element: <Verify></Verify>,
+    element: <Verify />,
   },
   {
-    path: "/reset",
-    element: <ResetPass></ResetPass>,
+    path: "/reset-password",
+    element: <ResetPass />,
   },
 ]);

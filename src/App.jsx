@@ -1,14 +1,7 @@
-
 import './App.css'
 
-function App() {
-
-
-  return (
-    <>
-      Hellow
-    </>
-  )
+function App({ children }) {
+  return children
 }
 
 export default App
