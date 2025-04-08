@@ -1,7 +1,9 @@
-import { FaUsers } from "react-icons/fa";
+import { FaChevronDown, FaUsers } from "react-icons/fa";
 import { useState } from "react";
 import dayjs from "dayjs";
 import RecentUsers from "./RecentUsers";
+import VendorGrowth from "./VendorGrowth";
+import UserGrowth from "./UserGrowth";
 
 function DashboardPage() {
   const currentYear = dayjs().year();
@@ -67,6 +69,79 @@ function DashboardPage() {
           </div>
           <p className="text-[#0B704E] text-2xl font-bold">120</p>
         </div>
+      </div>
+      {/* .............. */}
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5 mt-5">
+        <div className="w-full p-5 bg-[#F2F2F2] rounded-lg shadow-md">
+          <div className="flex flex-col md:flex-row md:justify-between lg:justify-between items-center gap-5 my-5">
+            <div>
+              <h1 className="text-xl font-semibold">Vendor Growth</h1>
+            </div>
+
+            <div className="relative w-full md:w-32">
+              {/* Selected Year Display */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md flex justify-between items-center bg-white transition"
+              >
+                <span className="text-[#0B704E]">{selectedYear}</span>
+                <FaChevronDown className="text-[#0B704E] w-5 h-5 ml-5" />
+              </button>
+
+              {/* Dropdown List */}
+              {isOpen && (
+                <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-60 overflow-y-auto shadow-lg">
+                  {years.map((year) => (
+                    <div
+                      key={year}
+                      onClick={() => handleSelect(year)}
+                      className={`p-2 cursor-pointer hover:bg-gray-100 transition ${year === selectedYear ? "bg-gray-200" : ""
+                        }`}
+                    >
+                      {year}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+          <VendorGrowth />
+        </div>
+        <div className="w-full p-5 bg-[#F2F2F2] rounded-lg shadow-md">
+          <div className="flex flex-col md:flex-row md:justify-between lg:justify-between items-center gap-5 my-5">
+            <div>
+              <h1 className="text-xl font-semibold">User Growth</h1>
+            </div>
+            <div className="relative w-full md:w-32">
+              {/* Selected Year Display */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-md flex justify-between items-center bg-white transition"
+              >
+                <span className="text-[#0B704E]">{selectedYear}</span>
+                <FaChevronDown className="text-[#0B704E] w-5 h-5 ml-5" />
+              </button>
+
+              {/* Dropdown List */}
+              {isOpen && (
+                <div className="absolute z-10 w-full bg-white border border-gray-300 rounded-md mt-1 max-h-60 overflow-y-auto shadow-lg text-lg">
+                  {years.map((year) => (
+                    <div
+                      key={year}
+                      onClick={() => handleSelect(year)}
+                      className={`p-2 cursor-pointer hover:bg-gray-100 transition ${year === selectedYear ? "bg-gray-200" : ""
+                        }`}
+                    >
+                      {year}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+          <UserGrowth />
+        </div>
+
       </div>
       <div className="mt-5">
         <h1 className="text-2xl font-bold mb-5">Recent Joined User</h1>
