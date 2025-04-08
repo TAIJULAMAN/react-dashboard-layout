@@ -20,28 +20,19 @@ const items = [
     key: "userManagement",
     label: "User Management",
     icon: user,
-    link: "/dashboard/UserManagement",
+    link: "/dashboard/userManagement",
   },
-
-  
-  
   {
-    key: "categoriesManagement",
-    label: "Categories Management",
-    icon: categorie,
-    link: "/dashboard/CategoriesManagement/Categories",
-    children: [
-      {
-        key: "categories",
-        label: "Categories",
-        link: "/dashboard/CategoriesManagement/Categories",
-      },
-      {
-        key: "subcategory",
-        label: "Subcategory",
-        link: "/dashboard/CategoriesManagement/Subcategory",
-      },
-    ],
+    key: "management",
+    label: "Management",
+    icon: dashboard,
+    link: "/dashboard/management",
+  },
+  {
+    key: "reports",
+    label: "Reports",
+    icon: user,
+    link: "/dashboard/reports",
   },
   {
     key: "subscription",
@@ -69,19 +60,9 @@ const items = [
         key: "privacy",
         label: "Privacy Policy",
         link: "/dashboard/Settings/PrivacyPolicy",
-      },
-      {
-        key: "faq",
-        label: "FAQ",
-        link: "/dashboard/Settings/FAQ",
-      },
-      {
-        key: "about",
-        label: "About Us",
-        link: "/dashboard/Settings/aboutUs",
-      },
-    ],
-  },
+      }
+    ]
+  }
 ];
 
 const SidBar = () => {
@@ -133,7 +114,7 @@ const SidBar = () => {
   };
 
   return (
-    <div className="custom-sidebar h-[100vh] bg-[#120c66]">
+    <div className="custom-sidebar h-[100vh] bg-[#202020]">
       
       <div className="custom-sidebar-logo flex justify-center">
         <img src={logo} alt="Logo" className="w-[160px]" />
@@ -157,9 +138,7 @@ const SidBar = () => {
               <Link
                 to={item.link}
                 className={`menu-item my-4 mx-5 py-3 px-3 flex items-center cursor-pointer ${
-                  selectedKey === item.key || isSettingsActive || isCreatorActive || isCategoriesActive
-                    ? "bg-[#bb3538] text-white rounded-md"
-                    : "bg-white rounded-md hover:bg-gray-200"
+                  selectedKey === item.key || isSettingsActive || isCreatorActive || isCategoriesActive ? "bg-[#0B704E] text-white rounded-md" : "bg-white rounded-md hover:bg-[#B3D3C8]"
                 }`}
                 onClick={(e) => {
                   if (item.children) {
@@ -202,8 +181,8 @@ const SidBar = () => {
                       to={child.link}
                       className={`menu-item p-4 flex items-center cursor-pointer ${
                         selectedKey === child.key
-                          ? "bg-[#bb3538] text-white"
-                          : "hover:bg-gray-200"
+                          ? "bg-[#0B704E] text-white"
+                          : "hover:bg-[#B3D3C8]"
                       }`}
                       onClick={() => {
                         setSelectedKey(child.key); // Set the selected key for children
@@ -224,7 +203,7 @@ const SidBar = () => {
       <div className="  w-full p-4 px-5">
         <button
           onClick={handleLogout}
-          className="w-full flex bg-[#fa16ef] text-white text-start rounded-md  p-3"
+          className="w-full flex bg-[#0B704E] text-white text-start rounded-md p-3 mt-10"
         >
           <span className="text-2xl">
             <IoIosLogIn />
