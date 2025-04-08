@@ -143,7 +143,7 @@ function DashboardPage() {
         </div>
 
       </div>
-      <div className="mt-5">
+      <div className="">
         <h1 className="text-2xl font-bold mb-5">Recent Joined User</h1>
         <RecentUsers />
       </div>
