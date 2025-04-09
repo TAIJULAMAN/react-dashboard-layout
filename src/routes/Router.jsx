@@ -12,6 +12,7 @@ import Login from "../Auth/Login";
 import ForgetPassword from "../Auth/ForgetPass";
 import Management from "../page/Management/Management";
 import Report from "../page/Report/Report";
+import VendorDashboard from "../page/VendorDashboard/VendorDashboard";
 
 export const router = createBrowserRouter([
   {
@@ -30,9 +31,14 @@ export const router = createBrowserRouter([
         path: "/dashboard/management",
         element: <Management />,
       },
+
       {
         path: "/dashboard/report",
         element: <Report />,
+      },
+      {
+        path: "/vendorDashboard",
+        element: <VendorDashboard />,
       },
       {
         path: "/dashboard/Settings/profile",

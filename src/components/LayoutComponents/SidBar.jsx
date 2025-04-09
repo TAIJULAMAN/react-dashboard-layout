@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { IoIosLogIn } from "react-icons/io";
 
-const items = [
+const AdminItems = [
   {
     key: "dashboard",
     label: "Dashboard",
@@ -58,6 +58,39 @@ const items = [
     ]
   }
 ];
+const VendorItems = [
+  {
+    key: "dashboard",
+    label: "Dashboard",
+    icon: dashboard,
+    link: "/vendorDashboard",
+  },
+  {
+    key: "AddNewBar",
+    label: "Add New Bar",
+    icon: user,
+    link: "/vendorDashboard/AddNewBar",
+  },
+  {
+    key: "AddNewEvent",
+    label: "Add New Event",
+    icon: dashboard,
+    link: "/vendorDashboard/AddNewEvent",
+  },
+  {
+    key: "ManageBar",
+    label: "Manage Bar",
+    icon: user,
+    link: "/vendorDashboard/ManageBar",
+  },
+  {
+    key: "Transactions",
+    label: "Transactions",
+    icon: dashboard,
+    link: "/vendorDashboard/Transactions",
+  },
+
+];
 
 const SidBar = () => {
   const [selectedKey, setSelectedKey] = useState("dashboard");
@@ -71,7 +104,7 @@ const SidBar = () => {
 
     let activeParent = null;
 
-    items.forEach((item) => {
+    AdminItems.forEach((item) => {
       if (item.link === currentPath) {
         activeParent = item;
       } else if (
@@ -117,9 +150,8 @@ const SidBar = () => {
 
         {/* admin Menu */}
         <p className="text-white text-lg font-semibold mb-5">Admin Menu</p>
-
         <div>
-          {items.map((item) => {
+          {AdminItems.map((item) => {
             const isSettingsActive =
               item.key === "settings" &&
               item.children.some((child) => child.link === location.pathname);
@@ -176,8 +208,85 @@ const SidBar = () => {
                         key={child.key}
                         to={child.link}
                         className={`menu-item p-4 flex items-center cursor-pointer ${selectedKey === child.key
-                            ? "bg-[#0B704E] text-white"
-                            : "hover:bg-[#B3D3C8]"
+                          ? "bg-[#0B704E] text-white"
+                          : "hover:bg-[#B3D3C8]"
+                          }`}
+                        onClick={() => {
+                          setSelectedKey(child.key); // Set the selected key for children
+                          setExpandedKeys([]); // Close all expanded items
+                        }}
+                      >
+                        <span className="block w-full ">{child.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+        {/* vendor Menu */}
+        <p className="text-white text-lg font-semibold my-5">Vendor Menu</p>
+        <div>
+          {VendorItems.map((item) => {
+            const isSettingsActive =
+              item.key === "settings" &&
+              item.children.some((child) => child.link === location.pathname);
+
+            const isCreatorActive =
+              item.key === "creatorManagement" &&
+              item.children.some((child) => child.link === location.pathname);
+
+            const isCategoriesActive =
+              item.key === "categoriesManagement" &&
+              item.children.some((child) => child.link === location.pathname);
+
+            return (
+              <div key={item.key}>
+                <Link
+                  to={item.link}
+                  className={`menu-item my-4 mx-5 py-3 px-3 flex items-center cursor-pointer ${selectedKey === item.key || isSettingsActive || isCreatorActive || isCategoriesActive ? "bg-[#0B704E] text-white rounded-md" : "bg-white rounded-md hover:bg-[#B3D3C8]"
+                    }`}
+                  onClick={(e) => {
+                    if (item.children) {
+                      e.preventDefault();
+                      onParentClick(item.key);
+                    } else {
+                      setSelectedKey(item.key);
+                    }
+                  }}
+                >
+                  <img src={item.icon} alt={item.label} className="w-5 h-5 mr-3" />
+                  <span className="block w-full ">{item.label}</span>
+
+                  {/* Show dropdown arrow if children exist */}
+                  {item.children && (
+                    <FaChevronRight
+                      className={`ml-auto transform transition-all duration-300 ${expandedKeys.includes(item.key) ? "rotate-90" : ""
+                        }`}
+                    />
+                  )}
+                </Link>
+
+                {/* Show children menu if expanded */}
+                {item.children && (
+                  <div
+                    className={`children-menu bg-white -my-2 mx-5 transition-all duration-300 ${expandedKeys.includes(item.key) ? "expanded" : ""
+                      }`}
+                    style={{
+                      maxHeight: expandedKeys.includes(item.key)
+                        ? `${contentRef.current[item.key]?.scrollHeight}px`
+                        : "0",
+                    }}
+                    ref={(el) => (contentRef.current[item.key] = el)}
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.key}
+                        to={child.link}
+                        className={`menu-item p-4 flex items-center cursor-pointer ${selectedKey === child.key
+                          ? "bg-[#0B704E] text-white"
+                          : "hover:bg-[#B3D3C8]"
                           }`}
                         onClick={() => {
                           setSelectedKey(child.key); // Set the selected key for children
