@@ -32,7 +32,7 @@ const items = [
     key: "reports",
     label: "Reports",
     icon: user,
-    link: "/dashboard/reports",
+    link: "/dashboard/report",
   },
   {
     key: "settings",
