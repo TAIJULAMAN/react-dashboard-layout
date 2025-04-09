@@ -60,6 +60,7 @@ function ForgetPassword() {
                   className="w-full px-5 py-3 bg-gray-800 text-white border-2 border-gray-700 rounded-md outline-none mt-5 placeholder:text-gray-500"
                   required
                 />
+                
               </div>
 
               <div className="flex flex-col space-y-4">

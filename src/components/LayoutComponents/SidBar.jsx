@@ -35,12 +35,6 @@ const items = [
     link: "/dashboard/reports",
   },
   {
-    key: "subscription",
-    label: "Subscription",
-    icon: subscription,
-    link: "/dashboard/Subscription",
-  },
-  {
     key: "settings",
     label: "Settings",
     icon: settings,

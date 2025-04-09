@@ -6,14 +6,12 @@ import CreatorManagement from "../page/CreatorManagement/CreatorManagement";
 import Subscription from "../page/Subscription/Subscription";
 import Profile from "../page/Settings/Profile";
 import TermsCondition from "../page/Settings/TermsCondition";
-import FAQ from "../page/Settings/FAQ";
 import PrivacyPolicy from "../page/Settings/PrivacyPolicy";
 import Categories from "../page/CategoriesManagement/Categories";
 import Subcategory from "../page/CategoriesManagement/Subcategory";
 import Verify from "../Auth/Verify";
 import ResetPass from "../Auth/ResetPass";
 import Notification from "../page/Notification/Notification";
-import About from "../page/Settings/About";
 import Login from "../Auth/Login";
 import ForgetPassword from "../Auth/ForgetPass";
 
@@ -57,14 +55,6 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/Settings/Terms&Condition",
         element: <TermsCondition />,
-      },
-      {
-        path: "/dashboard/Settings/FAQ",
-        element: <FAQ />,
-      },
-      {
-        path: "/dashboard/Settings/aboutUs",
-        element: <About />,
       },
       {
         path: "/dashboard/Settings/PrivacyPolicy",

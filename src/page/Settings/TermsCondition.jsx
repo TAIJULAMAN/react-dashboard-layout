@@ -1,66 +1,34 @@
-import  { useState, useRef, } from 'react';
-import JoditEditor from 'jodit-react';
-import { FaArrowLeft } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
-
-const TermsCondition = () => {
-
-  const editor = useRef(null);
-  const [content, setContent] = useState('');
-  // const [isLoading, seLoading] = useState(false)
-  const navigate = useNavigate(); 
-  // const handleTerms = () => {
-  //     console.log(content)
-  // }
-  const config = {
-      readonly: false,
-      placeholder: 'Start typings...',
-      style: {
-          height: 600,
-      },
-      buttons: [
-          'image', 'fontsize', 'bold', 'italic', 'underline', '|',
-          'font', 'brush',
-          'align'
-      ]
-  }
+function TermsAndCondition() {
+  const [content, setContent] = useState(
+    "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum."
+  );
 
   return (
-    <div className=" mx-auto ">
-      <div className="flex justify-between mb-7 mt-4">
-      <h1 className="flex gap-4">
-          <button
-            className="text-[#EF4849] "
-            onClick={() => navigate(-1)} 
-          >
-            <FaArrowLeft />
-          </button>
-          <span className="text-lg font-semibold">Terms & Condition</span>
-        </h1>
-        
+    <div className="p-5">
+      <h1 className="text-start text-white text-3xl font-bold mb-5">Terms And Condition</h1>
+
+      <div className=" bg-white rounded shadow p-5 h-full">
+        <ReactQuill
+          style={{ padding: "10px" }}
+          theme="snow"
+          value={content}
+          onChange={setContent}
+        />
       </div>
-
-      <JoditEditor
-        ref={editor}
-        value={content}
-        config={config}
-        tabIndex={1}
-        onBlur={newContent => setContent(newContent)}
-        // onChange={newContent => { }}
-      />
-      
-
-      <div className="mt-5 flex justify-center">
+      <div className="text-center py-5">
         <button
-       
-          className="bg-[#02111E] py-2 px-4 rounded text-white"
+          onClick={() => console.log(content)}
+          className="bg-[#0B704E] text-white font-semibold w-full py-2 rounded transition duration-200"
         >
-          Save & change
+          Save changes
         </button>
       </div>
     </div>
   );
-};
+}
 
-export default TermsCondition;
+export default TermsAndCondition;
