@@ -86,7 +86,7 @@ const SidBar = () => {
       setSelectedKey(
         activeParent.children
           ? activeParent.children.find((child) => child.link === currentPath)
-              ?.key || activeParent.key
+            ?.key || activeParent.key
           : activeParent.key
       );
 
@@ -109,88 +109,90 @@ const SidBar = () => {
 
   return (
     <div className="custom-sidebar h-[100vh] bg-[#202020]">
-      
+
       <div className="custom-sidebar-logo flex justify-center">
         <img src={logo} alt="Logo" className="w-[160px]" />
       </div>
       <div className="menu-items">
-        {items.map((item) => {
-          const isSettingsActive =
-            item.key === "settings" &&
-            item.children.some((child) => child.link === location.pathname);
 
-          const isCreatorActive =
-            item.key === "creatorManagement" &&
-            item.children.some((child) => child.link === location.pathname);
+        {/* admin Menu */}
+        <p className="text-white text-lg font-semibold mb-5">Admin Menu</p>
 
-          const isCategoriesActive =
-            item.key === "categoriesManagement" &&
-            item.children.some((child) => child.link === location.pathname);
+        <div>
+          {items.map((item) => {
+            const isSettingsActive =
+              item.key === "settings" &&
+              item.children.some((child) => child.link === location.pathname);
 
-          return (
-            <div key={item.key}>
-              <Link
-                to={item.link}
-                className={`menu-item my-4 mx-5 py-3 px-3 flex items-center cursor-pointer ${
-                  selectedKey === item.key || isSettingsActive || isCreatorActive || isCategoriesActive ? "bg-[#0B704E] text-white rounded-md" : "bg-white rounded-md hover:bg-[#B3D3C8]"
-                }`}
-                onClick={(e) => {
-                  if (item.children) {
-                    e.preventDefault(); 
-                    onParentClick(item.key); 
-                  } else {
-                    setSelectedKey(item.key);
-                  }
-                }}
-              >
-                <img src={item.icon} alt={item.label} className="w-5 h-5 mr-3" />
-                <span className="block w-full ">{item.label}</span>
+            const isCreatorActive =
+              item.key === "creatorManagement" &&
+              item.children.some((child) => child.link === location.pathname);
 
-                {/* Show dropdown arrow if children exist */}
-                {item.children && (
-                  <FaChevronRight
-                    className={`ml-auto transform transition-all duration-300 ${
-                      expandedKeys.includes(item.key) ? "rotate-90" : ""
+            const isCategoriesActive =
+              item.key === "categoriesManagement" &&
+              item.children.some((child) => child.link === location.pathname);
+
+            return (
+              <div key={item.key}>
+                <Link
+                  to={item.link}
+                  className={`menu-item my-4 mx-5 py-3 px-3 flex items-center cursor-pointer ${selectedKey === item.key || isSettingsActive || isCreatorActive || isCategoriesActive ? "bg-[#0B704E] text-white rounded-md" : "bg-white rounded-md hover:bg-[#B3D3C8]"
                     }`}
-                  />
-                )}
-              </Link>
-
-              {/* Show children menu if expanded */}
-              {item.children && (
-                <div
-                  className={`children-menu bg-white -my-2 mx-5 transition-all duration-300 ${
-                    expandedKeys.includes(item.key) ? "expanded" : ""
-                  }`}
-                  style={{
-                    maxHeight: expandedKeys.includes(item.key)
-                      ? `${contentRef.current[item.key]?.scrollHeight}px`
-                      : "0",
+                  onClick={(e) => {
+                    if (item.children) {
+                      e.preventDefault();
+                      onParentClick(item.key);
+                    } else {
+                      setSelectedKey(item.key);
+                    }
                   }}
-                  ref={(el) => (contentRef.current[item.key] = el)}
                 >
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.key}
-                      to={child.link}
-                      className={`menu-item p-4 flex items-center cursor-pointer ${
-                        selectedKey === child.key
-                          ? "bg-[#0B704E] text-white"
-                          : "hover:bg-[#B3D3C8]"
+                  <img src={item.icon} alt={item.label} className="w-5 h-5 mr-3" />
+                  <span className="block w-full ">{item.label}</span>
+
+                  {/* Show dropdown arrow if children exist */}
+                  {item.children && (
+                    <FaChevronRight
+                      className={`ml-auto transform transition-all duration-300 ${expandedKeys.includes(item.key) ? "rotate-90" : ""
+                        }`}
+                    />
+                  )}
+                </Link>
+
+                {/* Show children menu if expanded */}
+                {item.children && (
+                  <div
+                    className={`children-menu bg-white -my-2 mx-5 transition-all duration-300 ${expandedKeys.includes(item.key) ? "expanded" : ""
                       }`}
-                      onClick={() => {
-                        setSelectedKey(child.key); // Set the selected key for children
-                        setExpandedKeys([]); // Close all expanded items
-                      }}
-                    >
-                      <span className="block w-full ">{child.label}</span>
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          );
-        })}
+                    style={{
+                      maxHeight: expandedKeys.includes(item.key)
+                        ? `${contentRef.current[item.key]?.scrollHeight}px`
+                        : "0",
+                    }}
+                    ref={(el) => (contentRef.current[item.key] = el)}
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.key}
+                        to={child.link}
+                        className={`menu-item p-4 flex items-center cursor-pointer ${selectedKey === child.key
+                            ? "bg-[#0B704E] text-white"
+                            : "hover:bg-[#B3D3C8]"
+                          }`}
+                        onClick={() => {
+                          setSelectedKey(child.key); // Set the selected key for children
+                          setExpandedKeys([]); // Close all expanded items
+                        }}
+                      >
+                        <span className="block w-full ">{child.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Logout Button */}
