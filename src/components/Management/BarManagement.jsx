@@ -56,86 +56,86 @@ function BarManagement() {
           ];
 
           const columns = [
-                    { 
-                        title: "No", 
-                        dataIndex: "no", 
-                        key: "no",
-                        width: 70,
-                        fixed: 'left',
-                        align: 'center'
-                    },
-                    { 
-                        title: "Bar Name", 
-                        dataIndex: "name", 
-                        key: "name",
-                        width: 200,
-                        fixed: 'left',
-                        ellipsis: true
-                    },
-                    { 
-                        title: "Email", 
-                        dataIndex: "email", 
-                        key: "email",
-                        width: 250,
-                        ellipsis: true
-                    },
-                    { 
-                        title: "Phone", 
-                        dataIndex: "phone", 
-                        key: "phone",
-                        width: 150
+                    {
+                              title: "No",
+                              dataIndex: "no",
+                              key: "no",
+                              width: 70,
+                              fixed: 'left',
+                              align: 'center'
                     },
                     {
-                        title: "Total Participants",
-                        key: "participants",
-                        width: 250,
-                        render: () => (
-                            <div className="flex -space-x-4">
-                                <img
-                                    className="h-10 w-10 rounded-full ring-2 ring-white inline-block"
-                                    src="https://i.ibb.co.com/RvFgZC8/aman.png"
-                                    alt="avatar"
-                                />
-                                <img
-                                    className="h-10 w-10 rounded-full ring-2 ring-white inline-block"
-                                    src="https://i.ibb.co.com/RvFgZC8/aman.png"
-                                    alt="avatar"
-                                />
-                                <img
-                                    className="h-10 w-10 rounded-full ring-2 ring-white inline-block"
-                                    src="https://i.ibb.co.com/RvFgZC8/aman.png"
-                                    alt="avatar"
-                                />
-                                <img
-                                    className="h-10 w-10 rounded-full ring-2 ring-white inline-block"
-                                    src="https://i.ibb.co.com/RvFgZC8/aman.png"
-                                    alt="avatar"
-                                />
-                            </div>
-                        ),
+                              title: "Bar Name",
+                              dataIndex: "name",
+                              key: "name",
+                              width: 200,
+                              fixed: 'left',
+                              ellipsis: true
                     },
                     {
-                        title: "Action",
-                        key: "action",
-                        width: 120,
-                        fixed: 'right',
-                        align: 'center',
-                        render: (_, record) => (
-                            <div className="flex gap-2 justify-center">
-                                <button
-                                    onClick={() => handleView(record)}
-                                    className="bg-[#0B704E] text-white font-semibold py-2 px-3 rounded-lg"
-                                >
-                                    <IoEyeOutline className="w-5 h-5" />
-                                </button>
-                                <button
-                                    onClick={() => setIsModalOpen(true)}
-                                    className="bg-[#A80608] text-white font-semibold py-2 px-3 rounded-lg"
-                                >
-                                    <MdBlockFlipped className="w-5 h-5" />
-                                </button>
-                            </div>
-                        ),
+                              title: "Email",
+                              dataIndex: "email",
+                              key: "email",
+                              width: 250,
+                              ellipsis: true
+                    },
+                    {
+                              title: "Phone",
+                              dataIndex: "phone",
+                              key: "phone",
+                              width: 150
+                    },
+                    {
+                              title: "Total Participants",
+                              key: "participants",
+                              width: 250,
+                              render: () => (
+                                        <div className="flex -space-x-4">
+                                                  <img
+                                                            className="h-10 w-10 rounded-full ring-2 ring-white inline-block"
+                                                            src="https://i.ibb.co.com/RvFgZC8/aman.png"
+                                                            alt="avatar"
+                                                  />
+                                                  <img
+                                                            className="h-10 w-10 rounded-full ring-2 ring-white inline-block"
+                                                            src="https://i.ibb.co.com/RvFgZC8/aman.png"
+                                                            alt="avatar"
+                                                  />
+                                                  <img
+                                                            className="h-10 w-10 rounded-full ring-2 ring-white inline-block"
+                                                            src="https://i.ibb.co.com/RvFgZC8/aman.png"
+                                                            alt="avatar"
+                                                  />
+                                                  <img
+                                                            className="h-10 w-10 rounded-full ring-2 ring-white inline-block"
+                                                            src="https://i.ibb.co.com/RvFgZC8/aman.png"
+                                                            alt="avatar"
+                                                  />
+                                        </div>
+                              ),
+                    },
+                    {
+                              title: "Action",
+                              key: "action",
+                              width: 120,
+                              fixed: 'right',
+                              align: 'center',
+                              render: (_, record) => (
+                                        <div className="flex gap-2 justify-center">
+                                                  <button
+                                                            onClick={() => handleView(record)}
+                                                            className="bg-[#0B704E] text-white font-semibold py-2 px-3 rounded-lg"
+                                                  >
+                                                            <IoEyeOutline className="w-5 h-5" />
+                                                  </button>
+                                                  <button
+                                                            onClick={() => setIsModalOpen(true)}
+                                                            className="bg-[#A80608] text-white font-semibold py-2 px-3 rounded-lg"
+                                                  >
+                                                            <MdBlockFlipped className="w-5 h-5" />
+                                                  </button>
+                                        </div>
+                              ),
                     },
           ];
 
@@ -148,31 +148,34 @@ function BarManagement() {
                                                                       headerBg: "#0B704E",
                                                                       headerColor: "rgb(255,255,255)",
                                                                       rowHoverBg: "#E6F4F1",
+                                                                      headerBg: "#0B704E",
+                                                                      headerColor: "rgb(255,255,255)",
+                                                                      cellFontSize: 16,
+                                                                      headerSplitColor: "#0B704E",
+                                                            },
+                                                            Pagination: {
+                                                                      colorPrimaryBorder: "rgb(32,84,6)",
+                                                                      colorBorder: "rgb(42,108,9)",
+                                                                      colorPrimary: "rgb(37,102,5)",
+                                                                      colorPrimaryHover: "rgb(19,194,194)",
+                                                                      colorText: "rgb(19,194,194)",
+                                                                      itemSize: 30,
+                                                                      controlOutline: "rgb(19,194,194)"
                                                             },
                                                   },
                                         }}
                               >
                                         <div className="overflow-x-auto">
-                                            <div className="min-w-full inline-block align-middle">
-                                                <div className="overflow-hidden border border-gray-200 rounded-lg">
-                                                    <Table 
-                                                        dataSource={dataSource} 
-                                                        columns={columns}
-                                                        scroll={{ 
-                                                            x: true,
-                                                            scrollToFirstRowOnChange: true
-                                                        }}
-                                                        pagination={{
-                                                            position: ['bottomCenter'],
-                                                            pageSize: 10,
-                                                            showSizeChanger: true,
-                                                            showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
-                                                            className: "my-4"
-                                                        }}
-                                                        className="whitespace-nowrap"
-                                                    />
-                                                </div>
-                                            </div>
+                                                  <div className="min-w-full inline-block align-middle">
+                                                            <div className="overflow-hidden border border-gray-200 rounded-lg">
+                                                                      <Table
+                                                                                 dataSource={dataSource}
+                                                                                 columns={columns}
+                                                                                 pagination={{ pageSize: 10 }}
+                                                                                 scroll={{ x: "max-content" }}
+                                                                      />
+                                                            </div>
+                                                  </div>
                                         </div>
                               </ConfigProvider>
 
