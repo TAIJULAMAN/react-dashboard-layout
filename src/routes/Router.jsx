@@ -2,18 +2,21 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layout/dashboardLayout/DashboardLayout";
 import Dashboard from "../components/Dashboard/Dashboard";
 import UserManagement from "../page/UserManagement/UserManagement";
-import CreatorManagement from "../page/CreatorManagement/CreatorManagement";
-import Subscription from "../page/Subscription/Subscription";
 import Profile from "../page/Settings/Profile";
 import TermsCondition from "../page/Settings/TermsCondition";
 import PrivacyPolicy from "../page/Settings/PrivacyPolicy";
-import Categories from "../page/CategoriesManagement/Categories";
-import Subcategory from "../page/CategoriesManagement/Subcategory";
 import Verify from "../Auth/Verify";
 import ResetPass from "../Auth/ResetPass";
 import Notification from "../page/Notification/Notification";
 import Login from "../Auth/Login";
 import ForgetPassword from "../Auth/ForgetPass";
+import Management from "../page/Management/Management";
+import Report from "../page/Report/Report";
+import VendorDashboard from "../page/VendorDashboard/VendorDashboard";
+import AddNewBar from "../components/VendorDashboard/AddNewBar";
+import AddNewEvent from "../components/VendorDashboard/AddNewEvent";
+import ManageBar from "../components/VendorDashboard/ManageBar";
+import Transaction from "../components/VendorDashboard/Transaction";
 
 export const router = createBrowserRouter([
   {
@@ -29,20 +32,33 @@ export const router = createBrowserRouter([
         element: <UserManagement />,
       },
       {
-        path: "/dashboard/CreatorManagement",
-        element: <CreatorManagement />,
+        path: "/dashboard/management",
+        element: <Management />,
+      },
+
+      {
+        path: "/dashboard/report",
+        element: <Report />,
       },
       {
-        path: "/dashboard/CategoriesManagement/Categories",
-        element: <Categories />,
+        path: "/vendorDashboard",
+        element: <VendorDashboard />,
       },
       {
-        path: "/dashboard/CategoriesManagement/Subcategory",
-        element: <Subcategory />,
+        path: "/vendorDashboard/AddNewBar",
+        element: <AddNewBar />,
       },
       {
-        path: "/dashboard/Subscription",
-        element: <Subscription />,
+        path: "/vendorDashboard/AddNewEvent",
+        element: <AddNewEvent />,
+      },
+      {
+        path: "/vendorDashboard/ManageBar",
+        element: <ManageBar />,
+      },
+      {
+        path: "/vendorDashboard/Transaction",
+        element: <Transaction />,
       },
       {
         path: "/dashboard/Settings/profile",

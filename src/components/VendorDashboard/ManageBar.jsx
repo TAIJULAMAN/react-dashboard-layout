@@ -1,9 +1,9 @@
 import { ConfigProvider, Modal, Table } from "antd";
 import { useState } from "react";
-import { IoEyeOutline } from "react-icons/io5";
+import { IoEyeOutline, IoSearch } from "react-icons/io5";
 import { MdBlockFlipped } from "react-icons/md";
 
-function RestaurantManagement() {
+function ManageBar() {
           const [isBlockModalOpen, setIsBlockModalOpen] = useState(false);
           const [isViewModalOpen, setIsViewModalOpen] = useState(false);
           const [selectedRestaurant, setSelectedRestaurant] = useState(null);
@@ -66,7 +66,7 @@ function RestaurantManagement() {
                               key: "no",
                     },
                     {
-                              title: "Restaurant Name",
+                              title: "Name",
                               dataIndex: "name",
                               key: "name",
                     },
@@ -81,7 +81,7 @@ function RestaurantManagement() {
                               key: "location",
                     },
                     {
-                              title: "Table No",
+                              title: "Total Event",
                               dataIndex: "tableNo",
                               key: "tableNo",
                     },
@@ -109,6 +109,19 @@ function RestaurantManagement() {
 
           return (
                     <div className="min-h-screen my-5 md:my-10 lg:my-10">
+                              <div className="my-5 md:my-10 flex flex-col md:flex-row gap-5 justify-between items-center">
+                                        <h1 className="text-start text-white text-3xl font-bold mb-5">Manage Bar</h1>
+                                        <div className="relative w-full sm:w-[300px] mt-5 md:mt-0 lg:mt-0">
+                                                  <input
+                                                            type="text"
+                                                            placeholder="Search..."
+                                                            className="border border-[#e5eaf2] py-3 pl-12 pr-[65px] outline-none w-full rounded-md"
+                                                  />
+                                                  <span className=" text-gray-500 absolute top-0 left-0 h-full px-5 flex items-center justify-center rounded-r-md cursor-pointer">
+                                                            <IoSearch className="text-[1.3rem]" />
+                                                  </span>
+                                        </div>
+                              </div>
                               <ConfigProvider
                                         theme={{
                                                   components: {
@@ -190,7 +203,7 @@ function RestaurantManagement() {
                                                                                           <h2 className="text-2xl font-bold text-[#0B704E] mb-2">{selectedRestaurant.name}</h2>
                                                                                           <div className="space-y-2">
                                                                                                     <div className="flex items-center gap-2">
-                                                                                                              <span className="text-gray-600">Total Tables:</span>
+                                                                                                              <span className="text-gray-600">Total Events:</span>
                                                                                                               <span className="font-semibold">{selectedRestaurant.tableNo}</span>
                                                                                                     </div>
                                                                                                     <div className="flex items-center gap-2">
@@ -334,4 +347,4 @@ function RestaurantManagement() {
           );
 }
 
-export default RestaurantManagement;
+export default ManageBar;
