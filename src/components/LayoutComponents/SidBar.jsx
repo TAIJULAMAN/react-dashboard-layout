@@ -84,10 +84,10 @@ const VendorItems = [
     link: "/vendorDashboard/ManageBar",
   },
   {
-    key: "Transactions",
-    label: "Transactions",
+    key: "Transaction",
+    label: "Transaction",
     icon: dashboard,
-    link: "/vendorDashboard/Transactions",
+    link: "/vendorDashboard/Transaction",
   },
 
 ];

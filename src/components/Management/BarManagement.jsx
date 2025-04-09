@@ -162,14 +162,14 @@ function BarManagement() {
                                                   footer={null}
                                         >
                                                   <div className="flex flex-col justify-center items-center p-5">
-                                                            <h1 className="text-xl text-center text-[#00C0B5]">
+                                                            <h1 className="text-xl text-center text-[#0B704E]">
                                                                       Are you sure !
                                                             </h1>
                                                             <p>Do you want to Block your Users profile ?</p>
                                                             <div className="text-center py-5">
                                                                       <button
                                                                                 onClick={handleOk}
-                                                                                className="bg-[#00c0b5] text-white font-semibold w-full py-2 px-5 rounded transition duration-200"
+                                                                                className="bg-[#0B704E] text-white font-semibold w-full py-2 px-5 rounded transition duration-200"
                                                                       >
                                                                                 CONFIRM
                                                                       </button>

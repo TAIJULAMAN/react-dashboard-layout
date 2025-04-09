@@ -22,7 +22,7 @@ function VendorDashboard() {
 
           return (
                     <div className="flex flex-col">
-                              <div className="grid grid-cols-1 md:grid-cols-2 mmd:grid-cols-3 lg:grid-cols-5 gap-5">
+                              <div className="grid grid-cols-1 md:grid-cols-2 mmd:grid-cols-3 lg:grid-cols-4 gap-5">
                                         <div className="flex justify-between items-center p-5 bg-[#202020]  gap-5 h-[80px] rounded-lg shadow-md">
                                                   <div className="flex gap-2 items-center">
                                                             <p className="rounded-full flex justify-center items-center">
@@ -37,16 +37,7 @@ function VendorDashboard() {
                                                             <p className="rounded-full flex justify-center items-center">
                                                                       <FaUsers size={20} className=" bg-white rounded-full p-2 w-10 h-10 text-[#0B704E]" />
                                                             </p>
-                                                            <p className="text-xl font-semibold text-white whitespace-nowrap">Total Bar</p>
-                                                  </div>
-                                                  <p className="text-[#0B704E] text-2xl font-bold">120</p>
-                                        </div>
-                                        <div className="flex justify-between items-center p-5 bg-[#202020]  gap-5 h-[80px] rounded-lg shadow-md">
-                                                  <div className="flex gap-2 items-center">
-                                                            <p className="rounded-full flex justify-center items-center">
-                                                                      <FaUsers size={20} className=" bg-white rounded-full p-2 w-10 h-10 text-[#0B704E]" />
-                                                            </p>
-                                                            <p className="text-xl font-semibold text-white whitespace-nowrap">Total Club</p>
+                                                            <p className="text-xl font-semibold text-white whitespace-nowrap">Total Event</p>
                                                   </div>
                                                   <p className="text-[#0B704E] text-2xl font-bold">120</p>
                                         </div>
@@ -68,6 +59,7 @@ function VendorDashboard() {
                                                   </div>
                                                   <p className="text-[#0B704E] text-2xl font-bold">120</p>
                                         </div>
+                                        
                               </div>
 
                               <div className="w-full p-5 bg-[#F2F2F2] rounded-lg shadow-md mt-5">

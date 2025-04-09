@@ -13,6 +13,10 @@ import ForgetPassword from "../Auth/ForgetPass";
 import Management from "../page/Management/Management";
 import Report from "../page/Report/Report";
 import VendorDashboard from "../page/VendorDashboard/VendorDashboard";
+import AddNewBar from "../components/VendorDashboard/AddNewBar";
+import AddNewEvent from "../components/VendorDashboard/AddNewEvent";
+import ManageBar from "../components/VendorDashboard/ManageBar";
+import Transaction from "../components/VendorDashboard/Transaction";
 
 export const router = createBrowserRouter([
   {
@@ -39,6 +43,22 @@ export const router = createBrowserRouter([
       {
         path: "/vendorDashboard",
         element: <VendorDashboard />,
+      },
+      {
+        path: "/vendorDashboard/AddNewBar",
+        element: <AddNewBar />,
+      },
+      {
+        path: "/vendorDashboard/AddNewEvent",
+        element: <AddNewEvent />,
+      },
+      {
+        path: "/vendorDashboard/ManageBar",
+        element: <ManageBar />,
+      },
+      {
+        path: "/vendorDashboard/Transaction",
+        element: <Transaction />,
       },
       {
         path: "/dashboard/Settings/profile",
